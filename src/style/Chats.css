@@ -1,0 +1,9 @@
+.chatList{
+    display:flex ;
+    flex-direction: column;
+    text-decoration: none;
+
+}
+.chatName{
+    text-decoration: none;
+}
