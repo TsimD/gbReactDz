@@ -3,7 +3,7 @@ import '../style/Chats.css';
 import {NavLink, Route, Routes} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {chatsSelector} from "../redux/reducers/chatsSelector";
-import {type} from "@testing-library/user-event/dist/type";
+
 
 
 
