@@ -18,12 +18,12 @@ const initialState = {
 
 export const chatsReducer = (state = initialState , action)=>{
  switch (action.type) {
-   case 'add' :
+   case 'addChat' :
      return {
        ...state,
        chats: [...state.chats, action.payload]
      }
-   case  'delete':
+   case  'deleteChat':
      return {
        ...state,
        chats: state.chats.filter((chats)=> chats.id !== action.payload)

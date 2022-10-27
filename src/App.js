@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import NotFoundPage from "./pages/NotFoundPage";
 import Profile from "./pages/Profile";
 import ChatCont from "./components/ChatCont";
+import PostsPage from "./pages/PostsPage";
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path={'blog'} element={<BlogPage/>}/>
           <Route path={'profile'} element={<Profile/>}/>
           <Route path={'chats'}element={<Chats/>} />
+          <Route path={'posts'}element={<PostsPage/>} />
           <Route path={'chat/:id'}element={<ChatCont/>} />
           <Route path={'*'} element={<NotFoundPage/>}/> //Это роут на любой другой неназначенный  маршрут
         </Routes>
