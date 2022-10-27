@@ -1,9 +1,10 @@
-import {GET_POSTS, GET_POSTS_LOADING} from "./actionTypes";
+import {GET_POSTS, GET_POSTS_ERROR, GET_POSTS_LOADING} from "./actionTypes";
 
 const initialState = {
 
   posts: [],
-  loading: false
+  loading: false,
+  error: null
 }
 
 
@@ -23,10 +24,11 @@ export const postsReducer = (state = initialState, action) => {
         loading: true
       }
 
-    case 'ERROR':
+    case GET_POSTS_ERROR:
       return {
         ...state,
-        posts: 'ERROR ERROR ERROR'
+        loading: false,
+        posts: action.payload
       }
 
     default:
@@ -49,7 +51,8 @@ export const getPosts = () => {
       })
     }catch (error){
       dispatch({
-        type: 'ERROR'
+        type: GET_POSTS_ERROR,
+        payload: error.toString()
 
       })
     }

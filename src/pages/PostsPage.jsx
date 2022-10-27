@@ -6,6 +6,7 @@ import {getPosts} from "../redux/reducers/postsReducer";
 const PostsPage = () => {
   const posts = useSelector(postsSelector)
   const loader = useSelector(state=>state.posts.loading)
+  const error = useSelector(state=>state.posts.error)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,6 +16,12 @@ const PostsPage = () => {
   if(loader){
     return (
         <div>Loading...</div>
+    )
+  }
+
+  if(error){
+    return (
+        <div>ERROR ERROR ERROR</div>
     )
   }
 
