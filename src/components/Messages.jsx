@@ -22,7 +22,7 @@ const Messages = () => {
             author,
             chatId: chatId
           }
-      dispatch({type: 'add', payload: mess})
+      dispatch({type: 'addMessage', payload: mess})
       setText('');
       setAuthor('');
 
@@ -33,7 +33,7 @@ const Messages = () => {
         author: 'anonim',
         chatId: chatId
       }
-      dispatch({type: 'add', payload: mess})
+      dispatch({type: 'addMessage', payload: mess})
       setText('');
       setAuthor('');
     }}
@@ -61,6 +61,7 @@ const Messages = () => {
                   <h1>{item.text}</h1>
                   <h4>{item.author}</h4>
                   <h5>{item.id}</h5>
+                  <button onClick={() => dispatch({type: 'deleteMessage', payload: item.id })}>Удалить сообщение</button>
                 </div>
             )
           }

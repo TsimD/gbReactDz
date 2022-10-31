@@ -5,8 +5,7 @@ import Messages from "./Messages";
 const ChatCont = () => {
   return (
       <div className='conteiner'>
-
-        <Messages />
+ <Messages />
       </div>
 
   );

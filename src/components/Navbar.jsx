@@ -20,7 +20,12 @@ const Navbar = () => {
     },{
       name: 'Chats',
       href: '/chats'
-    }];
+    },
+    {
+      name: 'Posts',
+      href: '/posts'
+    }
+    ];
 
 
 
