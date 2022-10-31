@@ -2,3 +2,16 @@
     text-decoration: none;
 }
 
+.navbar{
+
+    margin-bottom: 10px;
+    height: 50px;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contLink{
+    width: 60px;
+}
+

@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {postsSelector} from "../redux/reducers/postsSelector";
-import {getPosts} from "../redux/reducers/postsReducer";
+import {postsError, postsLoading, postsSelector} from "../redux/reducers/posts/postsSelector";
+import {getPosts} from "../redux/reducers/posts/postsReducer";
+import LoadingGif from "../components/LoadingGif";
+import "../style/PostsPage.css"
+import {GET_POSTS_DELETE} from "../redux/reducers/actionTypes";
+
+
 
 const PostsPage = () => {
   const posts = useSelector(postsSelector)
-  const loader = useSelector(state=>state.posts.loading)
-  const error = useSelector(state=>state.posts.error)
+  const loader = useSelector(postsLoading)
+  const error = useSelector(postsError)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -15,22 +20,24 @@ const PostsPage = () => {
 
   if(loader){
     return (
-        <div>Loading...</div>
+        <div><LoadingGif/></div>
+        //
     )
   }
 
   if(error){
     return (
-        <div>ERROR ERROR ERROR</div>
+        <div>ERROR ERROR ERROR <button onClick={()=>dispatch(getPosts())}>Обновить</button> </div>
     )
   }
 
   return (
-      <div>
+      <div className="postsContainer">
         {posts.map((post) => {
           return (
-              <div key={post.id}>
+              <div key={post.id} className="postStyle">
                 {post.title}
+                <button className="postDeleteButton" onClick={()=>dispatch({type:GET_POSTS_DELETE, payload: post.id})}>Удалить</button>
               </div>
           )
         })}

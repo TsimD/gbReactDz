@@ -1,0 +1,29 @@
+.postsContainer {
+    text-align: center;
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.postStyle {
+    padding: 5px;
+    width: 300px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.postDeleteButton{
+    width: 70px;
+    height: 20px;
+    background-color: brown;
+    border-radius: 5px;
+    color: antiquewhite;
+    margin: 2px;
+}

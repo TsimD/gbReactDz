@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../style/Messages.css';
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {messagesSelector} from "../redux/reducers/messagesSelector";
+import {messagesSelector} from "../redux/reducers/messages/messagesSelector";
 
 const Messages = () => {
 
