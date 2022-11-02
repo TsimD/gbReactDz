@@ -1,4 +1,15 @@
+.linkName{
+    margin: 3px;
+    width: 50px;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 3px;
+}
+
 .activ{
     background-color: burlywood;
     text-decoration: none;
+
 }
+
+

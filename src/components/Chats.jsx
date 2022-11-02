@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import '../style/Chats.css';
 import {NavLink, Route, Routes} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {chatsSelector} from "../redux/reducers/chatsSelector";
+import {chatsSelector} from "../redux/reducers/chats/chatsSelector";
 
 
 

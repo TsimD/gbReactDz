@@ -8,13 +8,14 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Profile from "./pages/Profile";
 import ChatCont from "./components/ChatCont";
 import PostsPage from "./pages/PostsPage";
-
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
 
 
 
 function App() {
 
-  return (
+ return (
     <div className="App">
       <header className="mineHeader">
         <Navbar/>
@@ -22,8 +23,10 @@ function App() {
           <Route path={'/'} element={<HomePage/>}/>
           <Route path={'blog'} element={<BlogPage/>}/>
           <Route path={'profile'} element={<Profile/>}/>
-          <Route path={'chats'}element={<Chats/>} />
-          <Route path={'posts'}element={<PostsPage/>} />
+          <Route path={'chats'}element={<Chats/>}/>
+          <Route path={'posts'}element={<PostsPage/>}/>
+          <Route path={'register'}element={<RegisterPage/>}/>
+          <Route path={'login'}element={<LoginPage/>}/>
           <Route path={'chat/:id'}element={<ChatCont/>} />
           <Route path={'*'} element={<NotFoundPage/>}/> //Это роут на любой другой неназначенный  маршрут
         </Routes>

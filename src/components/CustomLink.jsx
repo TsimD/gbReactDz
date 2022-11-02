@@ -5,7 +5,10 @@ import "../style/CustomLink.css"
 const CustomLink = ({to, children}) => {
   const statusLink  = useMatch(to);
   return (
-      <NavLink className={statusLink? "activ" : ""} to={to} >{children}</NavLink>
+
+        <NavLink className={  statusLink? "activ linkName" : "noActiv linkName"} to={to} >{children}</NavLink>
+
+
   );
 };
 
