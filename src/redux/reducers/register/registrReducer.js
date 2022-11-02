@@ -1,8 +1,6 @@
 import  * as types from '../actionTypes'
 import {registerError, registerStart, registerSuccess} from "./registerActions";
 import {auth} from "../../../servise/firebase";
-import {loginError, loginStart, loginSuccess} from "./logining/loginingAction";
-import {logoutError, logoutStart, logoutSuccess} from "./logining/logoutAction";
 
 const initialState ={
   loading:false,
@@ -26,6 +24,7 @@ export const registerReducer =(state = initialState, action) =>{
     case types.SUCCESS_REGISTER:
       return {
         ...state,
+        loading:false,
         currentUser: action.payload
       }
 
@@ -52,28 +51,3 @@ export const registerInitiate=(email, password, nickname)=>{
   }
 }
 
-export const loginInitiate=(email, password)=>{
-  return(dispatch)=>{
-    dispatch(loginStart())
-    auth
-    .signInWithEmailAndPassword(email, password)
-    .then(({user})=>{
-      dispatch(loginSuccess(user))
-    })
-    .catch((e)=>dispatch(loginError(e.toString())))
-
-  }
-}
-
-export const logoutInitiate=(email, password)=>{
-  return(dispatch)=>{
-    dispatch(logoutStart())
-    auth
-    .signOut()
-    .then(({user})=>{
-      dispatch(logoutSuccess())
-    })
-    .catch((e)=>dispatch(logoutError(e.toString())))
-
-  }
-}

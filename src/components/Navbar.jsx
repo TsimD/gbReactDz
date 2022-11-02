@@ -1,15 +1,45 @@
 import React from 'react';
-import {Link, NavLink, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import '../style/Navbar.css'
-import CustomLink from "./CustomLink";
-import {useDispatch, useSelector} from "react-redux";
 import Logout from "./Logout";
 import {useEffect, useState} from "react";
 import firebase from "firebase/compat/app";
+import PrivatListNavigate from "./PrivatListNavigate";
 
 const Navbar = () => {
 
+  const tegName = [
+    {
+      name: 'HOME',
+      href: '/',
+      privat: false
+    },
+    {
+      name: 'BLOG',
+      href: '/blog',
+      privat: false
+    },
+    {
+      name: 'PROFILE',
+      href: '/profile',
+      privat: true
+    }, {
+      name: 'CHATS',
+      href: '/chats',
+      privat: true
+    },
+    {
+      name: 'POSTS',
+      href: '/posts',
+      privat: true
+    },
+
+  ];
+
+
   const [authed, setAuthed] = useState(false);
+  const navigate = useNavigate('');
+
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
@@ -21,56 +51,20 @@ const Navbar = () => {
     })
   }, []);
 
-  const dispatch = useDispatch();
-  const user = useSelector(state => state.register.user);
-  const navigate = useNavigate('');
 
-  const goSignIn=()=>{
+  const publicTegName = tegName.filter(e => e.privat === false)
+
+
+  const goSignIn = () => {
     navigate('/login')
   }
-
-  const tegName = [
-    {
-      name: 'Home',
-      href: '/'
-    },
-    {
-      name: 'Blog',
-      href: '/blog'
-    },
-    {
-      name: 'Profile',
-      href: '/profile'
-    },{
-      name: 'Chats',
-      href: '/chats'
-    },
-    {
-      name: 'Posts',
-      href: '/posts'
-    },
-
-    ];
-
-
 
 
   return (
       <div className="navbar">
+        {authed ? <PrivatListNavigate array={tegName}/> : <PrivatListNavigate array={publicTegName}/>}
+        {authed ? <Logout/> : <button onClick={goSignIn}>Войти</button>}
 
-        {tegName.map(e => {
-          return (
-              // <NavLink style={({isActive})=>({backgroundColor: isActive ? 'red': ''})} className="linkName" key={e.name} to={e.href} end>{e.name}</NavLink>
-              // Вариант использования инлайн стиля для отображения активной ссылки
-
-                <div className='contLink'>
-                  <CustomLink key={e.name} to={e.href} end>{e.name}</CustomLink>
-                </div>
-
-          )
-        })}
-        { authed ? <Logout/> : <button onClick={goSignIn}>Войти</button> }
-        {console.log(authed)}
       </div>
   );
 };
