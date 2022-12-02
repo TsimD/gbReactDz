@@ -1,6 +1,4 @@
 import React from 'react';
-import Chats from "../components/Chats";
-import Messages from "../components/Messages";
 
 const BlogPage = () => {
   return (

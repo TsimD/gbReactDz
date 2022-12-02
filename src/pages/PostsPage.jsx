@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {postsError, postsLoading, postsSelector} from "../redux/reducers/posts/postsSelector";
 import {getPosts} from "../redux/reducers/posts/postsReducer";
@@ -21,7 +21,7 @@ const PostsPage = () => {
   if(loader){
     return (
         <div><LoadingGif/></div>
-        //
+
     )
   }
 
